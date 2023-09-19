@@ -1,36 +1,45 @@
-LineageOS
+ReveraUI
 ===========
+A fork of Lineage with QoL Additions ❤️
 
-Getting started
----------------
+# Build guide
 
-To get started with Android/LineageOS, you'll need to get familiar with [Source Control Tools](https://source.android.com/setup/develop).
+Prior to building, you will need basic knowledge of [Git](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet).
 
-To initialize your local repository using the LineageOS trees, use a command like this:
+### Requirements
+- Around 100G disk space.
+- A computer with at least 16GB RAM running Linux (recommended) or MacOS.
+- Build environment [setup](https://github.com/akhilnarang/scripts).
+
+### Instructions
+1. Run the following commands to sync source
+
 ```
-repo init -u https://github.com/LineageOS/android.git -b lineage-20.0 --git-lfs
+repo init -u https://github.com/ReveraUI/android_manifest -b thirteen --git-lfs
 ```
-Then to sync up:
+2. To sync source, enter
+
 ```
-repo sync
+ repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
 ```
-Please see the [LineageOS Wiki](https://wiki.lineageos.org/) for building instructions, by device.
 
+3. Once the source is downloaded/synced, prepare your device trees, dependencies and start the build by the following commands
 
-Submitting patches
-------------------
-Patches are always welcome! Please submit your patches via LineageOS Gerrit!
+```
+   . build/envsetup.sh
+   lunch lineage_devicecodename-buildtype
+   m bacon -j$(nproc --all)
+```
 
-Simply follow our guide on [how to submit patches](https://wiki.lineageos.org/submitting-patch-howto.html).
+### Compilation Help
+To get help with build errors, please visit [**Android Building Help**](https://t.me/AndroidBuildingHelp).
 
-To view the status of your and others' patches, visit [LineageOS Gerrit Code Review](https://review.lineageos.org/).
+## Credits
 
-
-Buildbot
---------
-
-All supported devices are built weekly and periodically as changes are committed to ensure the source trees remain buildable.
-
-You can view the current build statuses at [LineageOS Buildkite](https://buildkite.com/lineageos).
-
-Builds produced weekly by the buildbot can be downloaded from [LineageOS downloads](https://download.lineageos.org/).
+ * [**LineageOS**](https://github.com/LineageOS)
+ * [**AwakenOS**](https://github.com/Project-Awaken)
+ * [**ArrowOS**](https://github.com/ArrowOS)
+ * [**SuperiorOS**](https://github.com/SuperiorOS)
+ * [**Kenvyra**](https://github.com/Kenvyra)
+ * [**PixelExperience**](https://github.com/PixelExperience)
+ * [**CrDroid**](https://github.com/crdroidandroid)
