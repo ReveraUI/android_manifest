@@ -13,6 +13,8 @@
           fetch="https://gitlab.com/superioros"
           revision="refs/heads/thirteen" />
 
+  <project path="manifest" name="android_manifest" remote="revera" />
+
   <!-- Frameworks Repos -->
   <project path="frameworks/base" name="android_frameworks_base" groups="pdk-cw-fs,pdk-fs" remote="revera" />
 
